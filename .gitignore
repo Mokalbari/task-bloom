@@ -1,0 +1,41 @@
+# Dépendances
+/node_modules/
+
+# Dossiers de build
+/dist/
+/build/
+
+# Fichiers de configuration d'environnement
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Fichiers et dossiers de cache
+.npm
+.cache/
+.pnp
+.pnp.js
+
+# Fichiers de journalisation
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Fichiers éditeur
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Systèmes d'exploitation
+.DS_Store
+Thumbs.db
+
+# Fichiers de bundle d'analyse
+.bundle-report.json
