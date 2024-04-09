@@ -1,6 +1,4 @@
-import { Task } from "./taskManager";
-
-let taskList = [];
+import { Task, taskList } from "./taskManager";
 
 export class ModalDomReference {
   constructor() {
@@ -11,15 +9,14 @@ export class ModalDomReference {
   }
 }
 
-export class ModalEvents extends ModalDomReference {
+export class ModalControl extends ModalDomReference {
   constructor() {
     super();
-    this.initEvent();
+    this.openModal();
     this.closeModal();
-    this.submitForm();
   }
 
-  initEvent() {
+  openModal() {
     this.openModalBtn.addEventListener("click", () => {
       this.modalDialogBox.showModal();
     });
@@ -30,7 +27,13 @@ export class ModalEvents extends ModalDomReference {
       this.modalDialogBox.close();
     });
   }
+}
 
+export class ModalSubmission extends ModalControl {
+  constructor() {
+    super();
+    this.submitForm();
+  }
   submitForm() {
     this.formContent.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -42,7 +45,6 @@ export class ModalEvents extends ModalDomReference {
       const newTask = new Task(title, description, dueDate, priority);
       this.modalDialogBox.close();
       taskList.push(newTask);
-      console.table(taskList);
     });
   }
 }

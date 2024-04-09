@@ -1,10 +1,13 @@
 import { format } from "date-fns";
+
 import {
   setUniqueID,
   checkInputDate,
   checkInputNumber,
   checkInputString,
 } from "./utils";
+
+export let taskList = [];
 
 export class Task {
   #id;
