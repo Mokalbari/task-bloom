@@ -65,7 +65,7 @@ export class Task {
   }
 
   set priority(value) {
-    if (checkInputNumber(value)) {
+    if (checkInputNumber(value, 1, 3)) {
       this.#priority = value;
     }
   }

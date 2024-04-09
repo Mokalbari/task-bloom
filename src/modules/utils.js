@@ -16,9 +16,11 @@ export const checkInputString = (value) => {
   }
 };
 
-export const checkInputNumber = (value) => {
-  if (typeof value !== "number" || value < 1 || value > 3) {
-    throw new Error("Your input must be a number between 1 and 3");
+export const checkInputNumber = (value, minValue, maxValue) => {
+  if (typeof value !== "number" || value < minValue || value > maxValue) {
+    throw new Error(
+      `Your input must be a number between ${minValue} and ${maxValue}`
+    );
   } else {
     return true;
   }
