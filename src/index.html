@@ -5,5 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Bloom</title>
   </head>
-  <body></body>
+  <body>
+
+<button id="openModalBtn">Open Form</button>
+
+
+<dialog id="modalForm">
+
+  <div class="modal-content">
+    <form action="/submit-form" method="post">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" pattern=".{2,20}" title="2 to 20 characters" required><br>
+
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description" pattern=".{2,20}" title="2 to 20 characters" required><br>
+
+        <label for="due-date">Due Date:</label><br>
+        <input type="date" id="due-date" name="due-date" required><br>
+
+        <label for="priority">Priority:</label><br>
+        <select id="priority" name="priority" required>
+            <option value="">--Select Priority--</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select><br>
+
+        <input type="submit" value="Submit">
+    </form>
+  </dialog>
+  </body>
 </html>

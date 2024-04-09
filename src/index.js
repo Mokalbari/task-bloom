@@ -1,6 +1,8 @@
 // CSS modules
 import indexScss from "./index.scss";
 import { Task } from "./modules/taskManager";
+import { ModalFormInteraction } from "./modules/dom";
 
-const simon = new Task("Simon", "Poisson", 1102, 3);
-console.log(simon);
+document.addEventListener("DOMContentLoaded", () => {
+  const modalInteraction = new ModalFormInteraction();
+});
