@@ -10,10 +10,10 @@
 <button id="openModalBtn">Open Form</button>
 
 
-<dialog id="modalForm">
+<dialog id="modalDialogBox">
 
   <div class="modal-content">
-    <form action="/submit-form" method="post">
+    <form action="/submit-form" method="post" id="formContent">
         <label for="title">Title:</label><br>
         <input type="text" id="title" name="title" pattern=".{2,20}" title="2 to 20 characters" required><br>
 
