@@ -60,7 +60,7 @@ export class Task {
 
   set dueDate(value) {
     if (checkInputDate(value)) {
-      this.#date = value;
+      this.#dueDate = value;
     }
   }
 
