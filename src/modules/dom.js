@@ -1,9 +1,15 @@
 export class ModalDomReference {
   constructor() {
+    // new task dom reference
     this.openNewTaskBtn = document.querySelector("#openNewTaskBtn");
     this.closeNewTaskBtn = document.querySelector("#closeNewTaskBtn");
     this.newTaskDialog = document.querySelector("#newTaskDialog");
-    this.formContent = document.querySelector("#formContent");
+    this.newTaskForm = document.querySelector("#newTaskForm");
+    // new project dom reference
+    this.openNewProjectBtn = document.querySelector("#openNewProjectBtn");
+    this.closeNewProjectBtn = document.querySelector("#closeNewProjectBtn");
+    this.newProjectDialog = document.querySelector("#newProjectDialog");
+    this.newProjectForm = document.querySelector("#newProjectForm");
   }
 }
 
@@ -12,6 +18,8 @@ export class ModalControl extends ModalDomReference {
     super();
     this.openNewTaskModal();
     this.closeNewTaskModal();
+    this.openNewProjectModal();
+    this.closeNewProjectModal();
   }
 
   openNewTaskModal() {
@@ -20,5 +28,13 @@ export class ModalControl extends ModalDomReference {
 
   closeNewTaskModal() {
     this.newTaskDialog.close();
+  }
+
+  openNewProjectModal() {
+    this.newProjectDialog.showModal();
+  }
+
+  closeNewProjectModal() {
+    this.newProjectDialog.close();
   }
 }

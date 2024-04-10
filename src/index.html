@@ -6,33 +6,66 @@
     <title>Task Bloom</title>
   </head>
   <body>
+    <button id="openNewTaskBtn">New Task</button>
+    <button id="openNewProjectBtn">New Project</button>
 
-<button id="openNewTaskBtn">Open Form</button>
+    <dialog id="newTaskDialog">
+      <form action="#" method="post" id="newTaskForm">
+        <label for="title">Title:</label><br />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          pattern=".{2,20}"
+          title="2 to 20 characters"
+          required /><br />
 
+        <label for="description">Description:</label><br />
+        <input
+          type="text"
+          id="description"
+          name="description"
+          pattern=".{2,20}"
+          title="2 to 20 characters"
+          required /><br />
 
-<dialog id="newTaskDialog">
+        <label for="due-date">Due Date:</label><br />
+        <input type="date" id="due-date" name="due-date" required /><br />
 
-  <div class="modal-content">
-    <form action="#" method="post" id="formContent">
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" pattern=".{2,20}" title="2 to 20 characters" required><br>
-
-        <label for="description">Description:</label><br>
-        <input type="text" id="description" name="description" pattern=".{2,20}" title="2 to 20 characters" required><br>
-
-        <label for="due-date">Due Date:</label><br>
-        <input type="date" id="due-date" name="due-date" required><br>
-
-        <label for="priority">Priority:</label><br>
+        <label for="priority">Priority:</label><br />
         <select id="priority" name="priority" required>
-            <option value="">--Select Priority--</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-        </select><br>
+          <option value="">--Select Priority--</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option></select
+        ><br />
         <button id="closeNewTaskBtn">Cancel</button>
-        <input type="submit" value="Submit">
-    </form>
-  </dialog>
+        <input type="submit" value="Submit" />
+      </form>
+    </dialog>
+
+    <dialog id="newProjectDialog">
+      <form action="#" method="post" id="newProjectForm">
+        <label for="titleProject">Title:</label><br />
+        <input
+          type="text"
+          id="titleProject"
+          name="titleProject"
+          pattern=".{2,20}"
+          title="2 to 20 characters"
+          required /><br />
+
+        <label for="descriptionProject">Description:</label><br />
+        <input
+          type="text"
+          id="descriptionProject"
+          name="descriptionProject"
+          pattern=".{2,20}"
+          title="2 to 20 characters"
+          required /><br />
+        <button id="closeNewProjectBtn">Cancel</button>
+        <input type="submit" value="Submit" />
+      </form>
+    </dialog>
   </body>
 </html>

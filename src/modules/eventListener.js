@@ -16,7 +16,7 @@ export class ModalEventListener {
       this.modalDomReference.closeNewTaskModal();
     });
 
-    this.modalDomReference.formContent.addEventListener("submit", (event) => {
+    this.modalDomReference.newTaskForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
       const title = document.getElementById("title").value;
@@ -26,6 +26,14 @@ export class ModalEventListener {
 
       createNewTask(title, description, dueDate, priority);
       this.modalDomReference.closeNewTaskModal();
+    });
+
+    this.modalDomReference.openNewProjectBtn.addEventListener("click", () => {
+      this.modalDomReference.openNewProjectModal();
+    });
+
+    this.modalDomReference.closeNewProjectBtn.addEventListener("click", () => {
+      this.modalDomReference.closeNewProjectModal();
     });
   }
 }
