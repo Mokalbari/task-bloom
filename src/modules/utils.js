@@ -35,6 +35,16 @@ export const checkInputDate = (value) => {
   }
 };
 
+export const toCamelCase = (str) => {
+  if (typeof str !== "string") {
+    throw new Error("Your input must be a sentence.");
+  } else {
+    return str
+      .toLowerCase()
+      .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+  }
+};
+
 // Media between event listener and Task class
 export const createNewTask = (title, description, dueDate, priority) => {
   const newTask = new Task(title, description, dueDate, priority);

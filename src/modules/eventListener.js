@@ -37,13 +37,3 @@ export class ModalEventListener {
     });
   }
 }
-
-// getBookInfoForm.addEventListener("submit", (event) => {
-//     event.preventDefault();
-
-//     const title = document.getElementById("title").value;
-//     const author = document.getElementById("author").value;
-//     const description = document.getElementById("description").value;
-//     const pages = document.getElementById("pages").value;
-//     const read = document.getElementById("read").checked;//
-//     event.target.reset();
