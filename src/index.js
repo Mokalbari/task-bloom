@@ -1,8 +1,9 @@
 // CSS modules
 import indexScss from "./index.scss";
 import { Task } from "./modules/taskManager";
-import { ModalControl } from "./modules/dom";
+import { ModalControl, ModalEventListener } from "./modules/dom";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const modalInteraction = new ModalControl();
+  const modalDomReference = new ModalControl();
+  const modalInteraction = new ModalEventListener(modalDomReference);
 });

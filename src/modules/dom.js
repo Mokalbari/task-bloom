@@ -17,14 +17,27 @@ export class ModalControl extends ModalDomReference {
   }
 
   openModal() {
-    this.openNewTaskBtn.addEventListener("click", () => {
-      this.newTaskDialog.showModal();
-    });
+    this.newTaskDialog.showModal();
   }
 
   closeModal() {
-    this.closeNewTaskBtn.addEventListener("click", () => {
-      this.newTaskDialog.close();
+    this.newTaskDialog.close();
+  }
+}
+
+export class ModalEventListener {
+  constructor(modalDomReference) {
+    this.modalDomReference = modalDomReference;
+    this.tieEventListener();
+  }
+
+  tieEventListener() {
+    this.modalDomReference.openNewTaskBtn.addEventListener("click", () => {
+      this.modalDomReference.openModal();
+    });
+
+    this.modalDomReference.closeNewTaskBtn.addEventListener("click", () => {
+      this.modalDomReference.closeModal();
     });
   }
 }
