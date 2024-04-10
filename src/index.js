@@ -5,6 +5,6 @@ import { ModalControl } from "./modules/dom";
 import { ModalEventListener } from "./modules/eventListener";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const modalDomReference = new ModalControl();
-  const modalInteraction = new ModalEventListener(modalDomReference);
+  const modalControl = new ModalControl();
+  const modalEvents = new ModalEventListener(modalControl);
 });

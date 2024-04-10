@@ -2,21 +2,21 @@ import { Task, taskList } from "./taskManager";
 import { createNewTask } from "./utils";
 
 export class ModalEventListener {
-  constructor(modalDomReference) {
-    this.modalDomReference = modalDomReference;
+  constructor(modalControl) {
+    this.modalControl = modalControl;
     this.tieEventListener();
   }
 
   tieEventListener() {
-    this.modalDomReference.openNewTaskBtn.addEventListener("click", () => {
-      this.modalDomReference.openNewTaskModal();
+    this.modalControl.openNewTaskBtn.addEventListener("click", () => {
+      this.modalControl.openNewTaskModal();
     });
 
-    this.modalDomReference.closeNewTaskBtn.addEventListener("click", () => {
-      this.modalDomReference.closeNewTaskModal();
+    this.modalControl.closeNewTaskBtn.addEventListener("click", () => {
+      this.modalControl.closeNewTaskModal();
     });
 
-    this.modalDomReference.newTaskForm.addEventListener("submit", (event) => {
+    this.modalControl.newTaskForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
       const title = document.getElementById("title").value;
@@ -25,15 +25,15 @@ export class ModalEventListener {
       const priority = document.getElementById("priority").value;
 
       createNewTask(title, description, dueDate, priority);
-      this.modalDomReference.closeNewTaskModal();
+      this.modalControl.closeNewTaskModal();
     });
 
-    this.modalDomReference.openNewProjectBtn.addEventListener("click", () => {
-      this.modalDomReference.openNewProjectModal();
+    this.modalControl.openNewProjectBtn.addEventListener("click", () => {
+      this.modalControl.openNewProjectModal();
     });
 
-    this.modalDomReference.closeNewProjectBtn.addEventListener("click", () => {
-      this.modalDomReference.closeNewProjectModal();
+    this.modalControl.closeNewProjectBtn.addEventListener("click", () => {
+      this.modalControl.closeNewProjectModal();
     });
   }
 }
