@@ -6,6 +6,7 @@ export const setUniqueID = () => {
   return Math.floor(Math.random() * Date.now());
 };
 
+// New task or modification, checks field validation
 export const checkInputString = (value) => {
   if (typeof value !== "string") {
     throw new Error("Your input must be a string");
@@ -32,4 +33,10 @@ export const checkInputDate = (value) => {
   } else {
     return true;
   }
+};
+
+// Media between event listener and Task class
+export const createNewTask = (title, description, dueDate, priority) => {
+  const newTask = new Task(title, description, dueDate, priority);
+  taskList.push(newTask);
 };

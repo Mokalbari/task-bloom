@@ -1,5 +1,3 @@
-import { Task, taskList } from "./taskManager";
-
 export class ModalDomReference {
   constructor() {
     this.openNewTaskBtn = document.querySelector("#openNewTaskBtn");
@@ -12,32 +10,15 @@ export class ModalDomReference {
 export class ModalControl extends ModalDomReference {
   constructor() {
     super();
-    this.openModal();
-    this.closeModal();
+    this.openNewTaskModal();
+    this.closeNewTaskModal();
   }
 
-  openModal() {
+  openNewTaskModal() {
     this.newTaskDialog.showModal();
   }
 
-  closeModal() {
+  closeNewTaskModal() {
     this.newTaskDialog.close();
-  }
-}
-
-export class ModalEventListener {
-  constructor(modalDomReference) {
-    this.modalDomReference = modalDomReference;
-    this.tieEventListener();
-  }
-
-  tieEventListener() {
-    this.modalDomReference.openNewTaskBtn.addEventListener("click", () => {
-      this.modalDomReference.openModal();
-    });
-
-    this.modalDomReference.closeNewTaskBtn.addEventListener("click", () => {
-      this.modalDomReference.closeModal();
-    });
   }
 }
