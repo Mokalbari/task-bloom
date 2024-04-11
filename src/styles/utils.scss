@@ -14,6 +14,7 @@ $s-050: 0.5rem; //8px
 $s-075: 0.75rem; //12px
 $s-087: 0.875rem; //14px
 $s-100: 1rem; //16px
+$s-125: 1.25rem; // 20px
 $s-150: 1.5rem; // 24px
 $s-200: 2rem; // 32px
 $s-250: 2.5rem; // 40px
@@ -31,3 +32,44 @@ $fw-t: 300;
 $fw-r: 400;
 $fw-s: 500;
 $fw-b: 600;
+
+// Utility mixins
+@mixin flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex($direction) {
+  display: flex;
+  flex-flow: $direction;
+}
+
+@mixin grid-center {
+  display: grid;
+  place-items: center;
+}
+
+@mixin round-border {
+  border-radius: $s-125;
+}
+
+@mixin hover-effect {
+  cursor: pointer;
+  transform: translateY(-3px);
+  transform: translateX(2px);
+  transition: transform 200ms ease-in-out;
+}
+
+@mixin click-effect {
+  transform: translateX(-2px);
+  transition: transform 100ms ease-in;
+  color: $clr-acc-600;
+}
+
+@mixin default-margin {
+  margin-bottom: $s-200;
+}
+
+@mixin default-padding {
+  padding: $s-200;
+}

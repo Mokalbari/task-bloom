@@ -19,7 +19,7 @@
         </div>
         <div class="sidebar__project">
           <h2>Your projects:</h2>
-          <ul>
+          <ul role="list" class="sidebar__links">
             <li><a href="#">Coding</a></li>
             <li><a href="#">Hiking</a></li>
             <li><a href="#">Trip</a></li>
@@ -27,7 +27,7 @@
         </div>
         <div class="sidebar__tasks">
           <h2>Your tasks:</h2>
-          <ul>
+          <ul role="list" class="sidebar__links">
             <li><a href="#">Today</a></li>
             <li><a href="#">This week</a></li>
             <li><a href="#">All tasks</a></li>
@@ -35,9 +35,11 @@
         </div>
         <div class="sidebar__modal">
           <h2>Add things:</h2>
-          <button class="sidebar__button" id="openNewTaskBtn">New Task</button>
+          <button class="sidebar__button" id="openNewTaskBtn">
+            <span class="sidebar__sign">+</span> Task
+          </button>
           <button class="sidebar__button" id="openNewProjectBtn">
-            New Project
+            <span class="sidebar__sign">+</span> Project
           </button>
         </div>
       </aside>
@@ -78,7 +80,7 @@
       </main>
     </div>
 
-    <dialog id="newTaskDialog">
+    <dialog class="modal" id="newTaskDialog">
       <form action="#" method="post" id="newTaskForm">
         <label for="title">Title:</label><br />
         <input
@@ -113,7 +115,7 @@
       </form>
     </dialog>
 
-    <dialog id="newProjectDialog">
+    <dialog class="modal" id="newProjectDialog">
       <form action="#" method="post" id="newProjectForm">
         <label for="titleProject">Title:</label><br />
         <input

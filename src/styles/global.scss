@@ -1,47 +1,107 @@
 @use "utils" as *;
+
 body {
   font-family: $ff-b;
-  display: grid;
-  place-items: center;
-  background: #2980b9; /* fallback for old browsers */
+  font-size: $s-100;
+  color: $clr-ntrl-900;
+  @include grid-center;
+  background: $clr-acc-600; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to left,
-    #ffffff,
-    #6dd5fa,
-    #2980b9
+    $clr-ntrl-050,
+    $clr-acc-600,
+    $clr-acc-600
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to left,
-    #ffffff,
-    #6dd5fa,
-    #2980b9
+    $clr-ntrl-050,
+    $clr-acc-600,
+    $clr-acc-600
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .container {
+  height: 90vh;
   height: 90svh;
+  width: 90vw;
   width: 90svw;
-  outline: 1px solid red;
   display: grid;
-  grid-template-columns: 1fr 4fr;
-  background-color: white;
-}
-
-aside {
-  outline: 1px solid blue;
+  grid-template-columns: minmax(30ch, 1fr) 5fr;
+  background-color: $clr-ntrl-050;
+  @include round-border;
 }
 
 .sidebar {
-  display: flex;
-  flex-direction: column;
+  @include flex(column);
+  background-color: $clr-ntrl-600;
+  color: $clr-ntrl-050;
+  padding: $s-200;
+  border-top-left-radius: $s-125;
+  border-bottom-left-radius: $s-125;
 
-  > * {
-    outline: 1px solid green;
+  &__header {
+    @include flex(column);
+    @include default-margin;
+
+    h1 {
+      font-family: $ff-h;
+      font-size: $s-250;
+    }
+
+    p {
+      font-size: $s-125;
+      font-weight: $fw-b;
+    }
+  }
+
+  &__links {
+    @include default-margin;
+    li {
+      font-size: $s-125;
+      margin-bottom: $s-050;
+    }
+    li:hover {
+      @include hover-effect;
+      ::before {
+        content: "⋅ ";
+      }
+    }
+    li:active {
+      @include click-effect;
+    }
   }
 
   &__modal {
-    display: flex;
-    flex-flow: column wrap;
     margin-top: auto;
+    @include flex(column);
+
+    h2 {
+      @include default-margin;
+    }
+  }
+
+  &__button {
+    width: 20ch;
+    border: 1px solid transparent;
+    align-self: center;
+    background-color: $clr-ntrl-050;
+    padding: $s-075;
+    border-radius: $s-100;
+    margin-bottom: $s-050;
+    font-size: $s-100;
+    font-weight: $fw-s;
+    box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      @include hover-effect;
+      font-weight: $fw-b;
+      background: $clr-acc-300;
+      border: 1px solid $clr-acc-600;
+    }
+  }
+
+  &__sign {
+    font-weight: $fw-b;
+    font-size: $s-125;
   }
 }
