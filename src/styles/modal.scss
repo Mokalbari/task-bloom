@@ -45,22 +45,22 @@
     margin-top: 20px;
     border: none;
     border-radius: 4px;
-    background-color: #4caf50;
+    background-color: $clr-acc-grn;
     color: white;
     transition: background-color 0.3s ease;
   }
 
   button:hover,
   input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: $clr-acc-grn;
   }
 
   button {
-    background-color: #f44336;
+    background-color: $clr-acc-org;
   }
 
   button:hover {
-    background-color: #e03125;
+    background-color: $clr-acc-red;
   }
 
   .flex-container {

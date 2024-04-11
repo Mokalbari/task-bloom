@@ -29,6 +29,7 @@ body {
   grid-template-columns: minmax(30ch, 1fr) 5fr;
   background-color: $clr-ntrl-050;
   @include round-border;
+  @include box-shadow;
 }
 
 .sidebar {
@@ -103,5 +104,60 @@ body {
   &__sign {
     font-weight: $fw-b;
     font-size: $s-125;
+  }
+}
+
+.wrapper {
+  @include grid-center;
+  overflow: scroll;
+}
+.task {
+  width: 95%;
+  height: 95%;
+
+  &__header {
+    @include default-margin;
+  }
+
+  &__content {
+    @include flex(row);
+    @include default-margin;
+    @include round-border;
+    @include box-shadow;
+    padding: $s-050;
+    background-color: $clr-ntrl-100;
+
+    align-items: center;
+
+    &--control {
+      margin-left: auto;
+      @include flex(row);
+      align-items: center;
+      gap: $s-100;
+    }
+    &--date {
+      :nth-child(1) {
+        font-weight: $fw-b;
+      }
+      margin-right: $s-100;
+    }
+  }
+  svg:hover {
+    @include hover-effect;
+  }
+
+  .check {
+    text-decoration: line-through;
+    color: $clr-ntrl-600;
+  }
+
+  .high {
+    border-left: 5px outset $clr-acc-red;
+  }
+  .med {
+    border-left: 5px outset $clr-acc-org;
+  }
+  .low {
+    border-left: 5px outset $clr-acc-grn;
   }
 }
