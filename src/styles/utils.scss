@@ -73,3 +73,7 @@ $fw-b: 600;
 @mixin default-padding {
   padding: $s-200;
 }
+
+@mixin box-shadow {
+  box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.2);
+}
