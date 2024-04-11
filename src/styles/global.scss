@@ -1,0 +1,31 @@
+body {
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  height: 90svh;
+  width: 90svw;
+  outline: 1px solid red;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+aside {
+  outline: 1px solid blue;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+
+  > * {
+    outline: 1px solid green;
+  }
+
+  &__modal {
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: auto;
+  }
+}
