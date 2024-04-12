@@ -57,6 +57,7 @@ body {
 
   &__links {
     @include default-margin;
+
     li {
       font-size: $s-125;
       margin-bottom: $s-050;
