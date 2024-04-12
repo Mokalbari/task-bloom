@@ -1,5 +1,6 @@
 import { Task, taskList } from "./taskManager";
 import { buildTask, createNewTask } from "./buildTask";
+import { buildProject, createNewProject } from "./buildProject";
 
 export class ModalEventListener {
   constructor(modalControl) {
@@ -35,6 +36,18 @@ export class ModalEventListener {
     });
 
     this.modalControl.closeNewProjectBtn.addEventListener("click", () => {
+      this.modalControl.closeNewProjectModal();
+    });
+
+    this.modalControl.newProjectForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const title = document.getElementById("titleProject").value;
+      const description = document.getElementById("descriptionProject").value;
+
+      createNewProject(title, description);
+      buildProject();
+      this.modalControl.newProjectForm.reset();
       this.modalControl.closeNewProjectModal();
     });
   }
