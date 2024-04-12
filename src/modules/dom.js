@@ -14,10 +14,13 @@ export class ModalDomReference {
     this.newProjectDialog = document.querySelector("#newProjectDialog");
     this.newProjectForm = document.querySelector("#newProjectForm");
     // task space dom reference
+    this.content = document.querySelector("#content");
+    this.contentHeaderDate = document.querySelector("#content__header--date");
+    this.contentHeaderDescription = document.querySelector(
+      "#content__header--description"
+    );
   }
 }
-
-const wrapper = document.querySelector(".wrapper");
 
 export class ModalControl extends ModalDomReference {
   constructor() {
@@ -45,11 +48,7 @@ export class ModalControl extends ModalDomReference {
   }
 }
 
-// Something to create a tag and an attribute
-// Something to put textContent / innerHTML inside -> Altérer l'élément
-// Something to append to DOM
-
-class CreateDOMElement {
+export class DOMElement {
   #tagName;
   #attribute;
   constructor(tagName, attribute) {
@@ -72,16 +71,20 @@ class CreateDOMElement {
   }
 }
 
-const setContent = (element, method, str) => {
+export const setContent = (element, method, str) => {
   if (checkInputString(str)) {
     if (method === "innerHTML") {
       return (element.innerHTML = str);
     } else if (method === "textContent") {
       return (element.textContent = str);
+    } else {
+      throw new Error("Your input mustbe 'innerHTML' or 'textContent");
     }
+  } else {
+    throw new Error("Your input mustbe 'innerHTML' or 'textContent");
   }
 };
 
-const appendToDOM = (parent, child) => {
+export const appendToDOM = (parent, child) => {
   return parent.appendChild(child);
 };
