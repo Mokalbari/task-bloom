@@ -112,53 +112,56 @@ body {
   @include grid-center;
   overflow: scroll;
 }
-.task {
+
+#content {
   width: 95%;
   height: 95%;
 
   &__header {
     @include default-margin;
   }
+}
 
-  &__content {
+.task {
+  @include flex(row);
+  @include default-margin;
+  @include round-border;
+  @include box-shadow;
+  padding: $s-050;
+  background-color: $clr-ntrl-100;
+
+  align-items: center;
+
+  &__control {
+    margin-left: auto;
     @include flex(row);
-    @include default-margin;
-    @include round-border;
-    @include box-shadow;
-    padding: $s-050;
-    background-color: $clr-ntrl-100;
-
     align-items: center;
+    gap: $s-100;
+  }
 
-    &--control {
-      margin-left: auto;
-      @include flex(row);
-      align-items: center;
-      gap: $s-100;
+  &--date {
+    :nth-child(1) {
+      font-weight: $fw-b;
     }
-    &--date {
-      :nth-child(1) {
-        font-weight: $fw-b;
-      }
-      margin-right: $s-100;
-    }
+    margin-right: $s-100;
   }
-  svg:hover {
-    @include hover-effect;
-  }
+}
 
-  .check {
-    text-decoration: line-through;
-    color: $clr-ntrl-600;
-  }
+svg:hover {
+  @include hover-effect;
+}
 
-  .high {
-    border-left: 5px outset $clr-acc-red;
-  }
-  .med {
-    border-left: 5px outset $clr-acc-org;
-  }
-  .low {
-    border-left: 5px outset $clr-acc-grn;
-  }
+.check {
+  text-decoration: line-through;
+  color: $clr-ntrl-600;
+}
+
+.high {
+  border-left: 5px outset $clr-acc-red;
+}
+.med {
+  border-left: 5px outset $clr-acc-org;
+}
+.low {
+  border-left: 5px outset $clr-acc-grn;
 }
