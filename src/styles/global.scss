@@ -137,13 +137,12 @@ body {
     @include flex(row);
     align-items: center;
     gap: $s-100;
-  }
 
-  &--date {
-    :nth-child(1) {
-      font-weight: $fw-b;
+    &--svg {
+      @include flex(row);
+      margin-left: $s-100;
+      gap: $s-100;
     }
-    margin-right: $s-100;
   }
 }
 
