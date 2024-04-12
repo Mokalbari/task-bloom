@@ -1,5 +1,6 @@
 import { startOfDay } from "date-fns/fp/startOfDay";
 import { checkInputString } from "./utils";
+import { taskList } from "./taskManager";
 
 export class ModalDomReference {
   constructor() {
@@ -54,6 +55,7 @@ export class DOMElement {
   constructor(tagName, attribute) {
     this.#tagName = tagName;
     this.#attribute = attribute;
+    ModalDomReference;
   }
 
   get tagName() {
@@ -85,6 +87,6 @@ export const setContent = (element, method, str) => {
   }
 };
 
-export const appendToDOM = (parent, child) => {
+export const appendToParent = (parent, child) => {
   return parent.appendChild(child);
 };

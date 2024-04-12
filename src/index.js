@@ -8,8 +8,10 @@ import {
   appendToDOM,
 } from "./modules/dom";
 import { ModalEventListener } from "./modules/eventListener";
+import { buildTask, createNewTask } from "./modules/buildTask";
 
 document.addEventListener("DOMContentLoaded", () => {
   const modalControl = new ModalControl();
   const modalEvents = new ModalEventListener(modalControl);
+  buildTask();
 });

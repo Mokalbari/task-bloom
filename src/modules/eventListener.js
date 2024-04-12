@@ -1,5 +1,5 @@
 import { Task, taskList } from "./taskManager";
-import { createNewTask } from "./utils";
+import { buildTask, createNewTask } from "./buildTask";
 
 export class ModalEventListener {
   constructor(modalControl) {
@@ -24,7 +24,9 @@ export class ModalEventListener {
       const dueDate = document.getElementById("due-date").value;
       const priority = document.getElementById("priority").value;
 
+      this.modalControl.newTaskForm.reset();
       createNewTask(title, description, dueDate, priority);
+      buildTask();
       this.modalControl.closeNewTaskModal();
     });
 

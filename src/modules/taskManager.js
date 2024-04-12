@@ -8,8 +8,6 @@ import {
   toCamelCase,
 } from "./utils";
 
-export let taskList = [];
-
 export class Task {
   #id;
   #date;
