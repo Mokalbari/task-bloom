@@ -13,68 +13,55 @@ export const createNewTask = (title, description, dueDate, priority) => {
   console.table(taskList);
 };
 
-const setPriority = (object, element) => {
-  switch (object) {
-    case "High":
-      element.className = "task high";
-      break;
-
-    case "Medium":
-      element.className = "task medium";
-      break;
-
-    case "Low":
-      element.className = "task low";
-      break;
-
-    default:
-      element.className = "task";
-      break;
-  }
-};
-
 export const buildTask = () => {
   content.textContent = "";
   for (let i = 0; i < taskList.length; i++) {
-    const divTask = new DOMElement("div", "class").setAttributeValue("task");
-    const divTaskTitle = new DOMElement("div", "class").setAttributeValue(
-      "task__title"
-    );
-    const titleH3 = new DOMElement("h3").setAttributeValue();
-    setContent(titleH3, "textContent", taskList[i].title);
-    const titleP = new DOMElement("p").setAttributeValue();
-    setContent(titleP, "textContent", taskList[i].description);
+    // Create the container around a task and verify priority
+    const divTask = new DOMElement("div");
+    divTask.addClass("task");
+    const priority = taskList[i].priority;
+    divTask.addClass(priority);
 
-    const divTaskControl = new DOMElement("div", "class").setAttributeValue(
-      "task__control"
-    );
-    const divTaskControlDate = new DOMElement("div", "class").setAttributeValue(
-      "task__control--date"
-    );
-    const dateP1 = new DOMElement("p").setAttributeValue();
-    setContent(dateP1, "textContent", "Due date:");
+    // Create the header part of the task
+    const divTaskTitle = new DOMElement("div");
+    divTaskTitle.addClass("task__title");
+    const titleH3 = new DOMElement("h3");
+    const titleP = new DOMElement("p");
 
-    const dateP2 = new DOMElement("p").setAttributeValue();
+    // Create the control part of the task
+    const divTaskControl = new DOMElement("div");
+    divTaskControl.addClass("task__control");
+
+    // Module for the due date
+    const divTaskControlDate = new DOMElement("div");
+    divTaskControlDate.addClass("task__control--date");
+    const dateP1 = new DOMElement("p");
+    const dateP2 = new DOMElement("p");
+
+    // Module for the svg
+    const divTaskControlSvg = new DOMElement("div");
+    divTaskControlSvg.addClass;
+
+    // Adding content to the newly created elements.
+    setContent(titleH3.element, "textContent", taskList[i].title);
+    setContent(titleP.element, "textContent", taskList[i].description);
+    setContent(dateP1.element, "textContent", "Due date:");
     setContent(
-      dateP2,
+      dateP2.element,
       "textContent",
       format(taskList[i].dueDate, "dd-MM-yyyy")
     );
+    setContent(divTaskControlSvg.element, "innerHTML", svgBundle());
 
-    const divTaskControlSvg = new DOMElement("div", "class").setAttributeValue(
-      "task__control--svg"
-    );
-    setContent(divTaskControlSvg, "innerHTML", svgBundle());
-
-    setPriority(taskList[i].priority, divTask);
-    appendToParent(content, divTask);
-    appendToParent(divTask, divTaskTitle);
-    appendToParent(divTaskTitle, titleH3);
-    appendToParent(divTaskTitle, titleP);
-    appendToParent(divTask, divTaskControl);
-    appendToParent(divTaskControl, divTaskControlDate);
-    appendToParent(divTaskControlDate, dateP1);
-    appendToParent(divTaskControlDate, dateP2);
-    appendToParent(divTaskControl, divTaskControlSvg);
+    // Appending newly created elements to the DOM / parent.
+    appendToParent(content, divTask.element);
+    appendToParent(divTask.element, divTaskTitle.element);
+    appendToParent(divTaskTitle.element, titleH3.element);
+    appendToParent(divTaskTitle.element, titleP.element);
+    appendToParent(divTask.element, divTaskControl.element);
+    appendToParent(divTaskControl.element, divTaskControlDate.element);
+    appendToParent(divTaskControlDate.element, dateP1.element);
+    appendToParent(divTaskControlDate.element, dateP2.element);
+    appendToParent(divTaskControl.element, divTaskControlSvg.element);
   }
 };

@@ -13,12 +13,8 @@ export const checkInputString = (value) => {
   }
 };
 
-export const checkInputNumber = (value, minValue, maxValue) => {
-  if (typeof value !== "number" || value < minValue || value > maxValue) {
-    throw new Error(
-      `Your input must be a number between ${minValue} and ${maxValue}`
-    );
-  } else {
+export const checkPriorityValue = (value) => {
+  if (value === "High" || value === "Medium" || value === "Low") {
     return true;
   }
 };

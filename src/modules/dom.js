@@ -50,29 +50,22 @@ export class ModalControl extends ModalDomReference {
 }
 
 export class DOMElement {
-  #tagName;
-  #attribute;
-  constructor(tagName, attribute) {
-    this.#tagName = tagName;
-    if (attribute) {
-      this.#attribute = attribute;
-    }
+  #element;
+
+  constructor(tagName) {
+    this.#element = document.createElement(tagName);
   }
 
-  get tagName() {
-    return this.#tagName;
+  get element() {
+    return this.#element;
   }
 
-  get attribute() {
-    return this.#attribute;
+  setAttribute(name, value) {
+    this.#element.setAttribute(name, value);
   }
 
-  setAttributeValue(attributeValue) {
-    const element = document.createElement(this.#tagName);
-    if (attributeValue) {
-      element.setAttribute(this.#attribute, attributeValue);
-    }
-    return element;
+  addClass(className) {
+    this.#element.classList.add(className);
   }
 }
 
