@@ -54,8 +54,9 @@ export class DOMElement {
   #attribute;
   constructor(tagName, attribute) {
     this.#tagName = tagName;
-    this.#attribute = attribute;
-    ModalDomReference;
+    if (attribute) {
+      this.#attribute = attribute;
+    }
   }
 
   get tagName() {
@@ -68,7 +69,9 @@ export class DOMElement {
 
   setAttributeValue(attributeValue) {
     const element = document.createElement(this.#tagName);
-    element.setAttribute(this.#attribute, attributeValue);
+    if (attributeValue) {
+      element.setAttribute(this.#attribute, attributeValue);
+    }
     return element;
   }
 }

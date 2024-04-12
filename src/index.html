@@ -56,7 +56,76 @@
               iure.
             </p>
           </div>
-          <div class="task high">
+        </div>
+      </main>
+    </div>
+
+    <dialog class="modal" id="newTaskDialog">
+      <form action="#" method="post" id="newTaskForm">
+        <label for="title">Title:</label><br />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          pattern=".{2,20}"
+          title="2 to 20 characters"
+          required /><br />
+
+        <label for="description">Description:</label><br />
+        <input
+          type="text"
+          id="description"
+          name="description"
+          pattern=".{2,20}"
+          title="2 to 20 characters"
+          required /><br />
+
+        <label for="due-date">Due Date:</label><br />
+        <input type="date" id="due-date" name="due-date" required /><br />
+
+        <label for="priority">Priority:</label><br />
+        <select id="priority" name="priority" required>
+          <option value="">--Select Priority--</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option></select
+        ><br />
+        <div class="flex-container">
+          <button id="closeNewTaskBtn">Cancel</button>
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="modal" id="newProjectDialog">
+      <form action="#" method="post" id="newProjectForm">
+        <label for="titleProject">Title:</label><br />
+        <input
+          type="text"
+          id="titleProject"
+          name="titleProject"
+          pattern=".{2,20}"
+          title="2 to 20 characters"
+          required /><br />
+
+        <label for="descriptionProject">Description:</label><br />
+        <input
+          type="text"
+          id="descriptionProject"
+          name="descriptionProject"
+          pattern=".{2,20}"
+          title="2 to 20 characters"
+          required /><br />
+        <div class="flex-container">
+          <button id="closeNewProjectBtn">Cancel</button>
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
+
+<!--           <div class="task high">
             <div class="task__title">
               <h3>Water those damn plants</h3>
               <p>
@@ -186,72 +255,4 @@
                   d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
               </svg>
             </div>
-          </div>
-        </div>
-      </main>
-    </div>
-
-    <dialog class="modal" id="newTaskDialog">
-      <form action="#" method="post" id="newTaskForm">
-        <label for="title">Title:</label><br />
-        <input
-          type="text"
-          id="title"
-          name="title"
-          pattern=".{2,20}"
-          title="2 to 20 characters"
-          required /><br />
-
-        <label for="description">Description:</label><br />
-        <input
-          type="text"
-          id="description"
-          name="description"
-          pattern=".{2,20}"
-          title="2 to 20 characters"
-          required /><br />
-
-        <label for="due-date">Due Date:</label><br />
-        <input type="date" id="due-date" name="due-date" required /><br />
-
-        <label for="priority">Priority:</label><br />
-        <select id="priority" name="priority" required>
-          <option value="">--Select Priority--</option>
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option></select
-        ><br />
-        <div class="flex-container">
-          <button id="closeNewTaskBtn">Cancel</button>
-          <input type="submit" value="Submit" />
-        </div>
-      </form>
-    </dialog>
-
-    <dialog class="modal" id="newProjectDialog">
-      <form action="#" method="post" id="newProjectForm">
-        <label for="titleProject">Title:</label><br />
-        <input
-          type="text"
-          id="titleProject"
-          name="titleProject"
-          pattern=".{2,20}"
-          title="2 to 20 characters"
-          required /><br />
-
-        <label for="descriptionProject">Description:</label><br />
-        <input
-          type="text"
-          id="descriptionProject"
-          name="descriptionProject"
-          pattern=".{2,20}"
-          title="2 to 20 characters"
-          required /><br />
-        <div class="flex-container">
-          <button id="closeNewProjectBtn">Cancel</button>
-          <input type="submit" value="Submit" />
-        </div>
-      </form>
-    </dialog>
-  </body>
-</html>
+          </div> -->
