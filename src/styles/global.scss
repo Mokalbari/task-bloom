@@ -110,7 +110,7 @@ body {
 
 .wrapper {
   @include grid-center;
-  overflow: scroll;
+  overflow: auto;
 }
 
 #content {
