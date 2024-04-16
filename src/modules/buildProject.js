@@ -1,10 +1,10 @@
-import { DOMElement, appendToParent, setContent } from "./dom";
+import { DOMElement, appendToParent, setContent, userInterface } from "./dom";
 import { checkStateInput } from "./checkInput";
 import { toCamelCase } from "./utils";
 
 export let projectList = [];
 
-const sidebarLinks = document.querySelector(".sidebar__links");
+const sidebarLinks = userInterface.sidebarLinks;
 
 export class Project {
   #title;
@@ -56,11 +56,9 @@ export class Project {
 export const createNewProject = (title, description) => {
   const newProject = new Project(title, description);
   projectList.push(newProject);
-  console.table(projectList);
 };
 
 export const buildProject = () => {
-  sidebarLinks.textContent = "";
   for (let i = 0; i < projectList.length; i++) {
     const li = new DOMElement("li");
     const a = new DOMElement("a");

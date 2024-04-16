@@ -22,11 +22,10 @@ export class ModalDomReference {
   }
 }
 
-export class SidebarReference {
-  constructor() {
-    this.sidebarLink = document.querySelector(".sidebar__a");
-  }
-}
+export const userInterface = {
+  content: document.querySelector("#content"),
+  sidebarLinks: document.querySelector(".sidebar__links"),
+};
 
 export class ModalControl extends ModalDomReference {
   constructor() {

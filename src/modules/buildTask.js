@@ -1,12 +1,12 @@
 import { format, set } from "date-fns";
-import { DOMElement, appendToParent, setContent } from "./dom";
+import { DOMElement, appendToParent, setContent, userInterface } from "./dom";
 import { svgBundle } from "./utils";
 import { checkInputDate, checkInputString } from "./checkInput";
 import { setUniqueID, toCamelCase } from "./utils";
 import { buildHeader } from "./buildHeader";
 
 export let taskList = [];
-const content = document.querySelector("#content");
+const content = userInterface.content;
 
 export class Task {
   #id;
@@ -86,13 +86,9 @@ export class Task {
 export const createNewTask = (title, description, dueDate, priority) => {
   const newTask = new Task(title, description, dueDate, priority);
   taskList.push(newTask);
-  console.table(taskList);
 };
 
 export const buildTask = () => {
-  content.textContent = "";
-  // As content is erased everytime a task is built, buildHeader() is necessary here.
-  buildHeader();
   for (let i = 0; i < taskList.length; i++) {
     // Create the container around a task and verify priority
     const divTask = new DOMElement("div");

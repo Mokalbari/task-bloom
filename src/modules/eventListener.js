@@ -1,5 +1,6 @@
 import { buildTask, createNewTask } from "./buildTask";
 import { buildProject, createNewProject } from "./buildProject";
+import { buildPage } from "./buildPage";
 
 export class ModalEventListener {
   constructor(modalControl) {
@@ -26,7 +27,7 @@ export class ModalEventListener {
 
       this.modalControl.newTaskForm.reset();
       createNewTask(title, description, dueDate, priority);
-      buildTask();
+      buildPage();
       this.modalControl.closeNewTaskModal();
     });
 
@@ -52,12 +53,15 @@ export class ModalEventListener {
   }
 }
 
-// class ProjectEvent {
-//   constructor(tieEventListener) {
-//     this.tieEventListener();
-//   }
+export class DynamicDOMEvent {
+  constructor(dynamicEvents) {
+    this.dynamicEvents = dynamicEvents;
+    this.tieDynamicEventsListener();
+  }
 
-//   tieEventListener() {
-
-//   }
-// }
+  tieDynamicEventsListener() {
+    this.dynamicEvents.sidebarLinks.addEventListener("click", (event) => {
+      alert("click");
+    });
+  }
+}
