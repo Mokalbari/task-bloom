@@ -16,6 +16,7 @@ export class Task {
   #dueDate;
   #priority;
   #project;
+  #check;
 
   constructor(title, description, dueDate, priority, project) {
     this.#id = setUniqueID();
@@ -25,6 +26,7 @@ export class Task {
     this.#dueDate = dueDate;
     this.#priority = priority;
     this.#project = project;
+    this.#check = false;
   }
   get title() {
     return this.#title;
@@ -81,6 +83,14 @@ export class Task {
       this.#priority = value;
     }
   }
+
+  get check() {
+    return this.#check;
+  }
+
+  set check(value) {
+    this.#check = value;
+  }
 }
 
 export const createNewTask = (title, description, dueDate, priority) => {
@@ -95,6 +105,10 @@ export const buildTask = () => {
     divTask.addClass("task");
     const priority = taskList[i].priority;
     divTask.addClass(priority);
+    const check = taskList[i].check;
+    if (check) {
+      divTask.addClass("check");
+    }
 
     // Create the header part of the task
     const divTaskTitle = new DOMElement("div");

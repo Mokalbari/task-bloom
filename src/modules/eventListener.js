@@ -3,6 +3,7 @@ import { buildProject, createNewProject, projectList } from "./buildProject";
 import { buildPage } from "./buildPage";
 import { userInterface } from "./dom";
 import { trimID } from "./utils";
+import { modifyTask } from "./controlTask";
 
 // The state is used to control the heaer content on the page.
 // It can three main values: "today", "week", "all".
@@ -81,9 +82,10 @@ export class DynamicDOMEvent {
     });
 
     this.content.addEventListener("click", (event) => {
-      if (event.target.id.includes("del")) {
-        console.log(event.target.id);
-      }
+      const eventTargetID = event.target.id;
+      const ID = parseInt(trimID(event.target.id));
+      modifyTask(eventTargetID, ID);
+      buildPage(state);
     });
   }
 }
