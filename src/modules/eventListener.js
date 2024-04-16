@@ -1,4 +1,3 @@
-import { Task, taskList } from "./taskManager";
 import { buildTask, createNewTask } from "./buildTask";
 import { buildProject, createNewProject } from "./buildProject";
 
@@ -51,4 +50,8 @@ export class ModalEventListener {
       this.modalControl.closeNewProjectModal();
     });
   }
+}
+
+class ProjectEvent {
+  constructor(ProjectEvent) {}
 }

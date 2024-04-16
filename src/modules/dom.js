@@ -1,6 +1,5 @@
 import { startOfDay } from "date-fns/fp/startOfDay";
-import { checkInputString } from "./utils";
-import { taskList } from "./taskManager";
+import { checkInputString } from "./checkInput";
 
 export class ModalDomReference {
   constructor() {

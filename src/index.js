@@ -1,6 +1,5 @@
 // CSS modules
 import indexScss from "./index.scss";
-import { Task } from "./modules/taskManager";
 import {
   ModalControl,
   setContent,
@@ -8,12 +7,14 @@ import {
   appendToDOM,
 } from "./modules/dom";
 import { ModalEventListener } from "./modules/eventListener";
-import { buildTask, createNewTask } from "./modules/buildTask";
+import { buildTask } from "./modules/buildTask";
 import { buildProject } from "./modules/buildProject";
+import { buildHeader } from "./modules/buildHeader";
 
 document.addEventListener("DOMContentLoaded", () => {
   const modalControl = new ModalControl();
   const modalEvents = new ModalEventListener(modalControl);
+  buildHeader();
   buildTask();
 });
 
