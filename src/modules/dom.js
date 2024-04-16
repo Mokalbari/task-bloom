@@ -24,7 +24,7 @@ export class ModalDomReference {
 
 export const userInterface = {
   content: document.querySelector("#content"),
-  sidebarLinks: document.querySelector(".sidebar__links"),
+  sidebarLinks: document.querySelector("#sidebarLinksContent"),
 };
 
 export class ModalControl extends ModalDomReference {

@@ -3,9 +3,13 @@ import { buildHeader } from "./buildHeader";
 import { userInterface } from "./dom";
 import { buildProject } from "./buildProject";
 
-export const buildPage = () => {
+const clearPage = () => {
   userInterface.content.textContent = "";
   userInterface.sidebarLinks.textContent = "";
+};
+
+export const buildPage = () => {
+  clearPage();
   buildHeader();
   buildProject();
   buildTask();

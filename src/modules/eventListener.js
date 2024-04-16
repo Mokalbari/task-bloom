@@ -1,6 +1,7 @@
 import { buildTask, createNewTask } from "./buildTask";
-import { buildProject, createNewProject } from "./buildProject";
+import { buildProject, createNewProject, projectList } from "./buildProject";
 import { buildPage } from "./buildPage";
+import { userInterface } from "./dom";
 
 export class ModalEventListener {
   constructor(modalControl) {
@@ -46,7 +47,7 @@ export class ModalEventListener {
       const description = document.getElementById("descriptionProject").value;
 
       createNewProject(title, description);
-      buildProject();
+      buildPage();
       this.modalControl.newProjectForm.reset();
       this.modalControl.closeNewProjectModal();
     });
@@ -54,14 +55,15 @@ export class ModalEventListener {
 }
 
 export class DynamicDOMEvent {
-  constructor(dynamicEvents) {
-    this.dynamicEvents = dynamicEvents;
-    this.tieDynamicEventsListener();
+  constructor() {
+    this.content = userInterface.content;
+    this.sidebarLinks = userInterface.sidebarLinks;
+    this.tieEventListener();
   }
 
-  tieDynamicEventsListener() {
-    this.dynamicEvents.sidebarLinks.addEventListener("click", (event) => {
-      alert("click");
+  tieEventListener() {
+    this.sidebarLinks.addEventListener("click", (event) => {
+      alert(event.target.id);
     });
   }
 }

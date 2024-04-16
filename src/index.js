@@ -10,6 +10,7 @@ import { buildPage } from "./modules/buildPage";
 document.addEventListener("DOMContentLoaded", () => {
   const modalControl = new ModalControl();
   const modalEvents = new ModalEventListener(modalControl);
+  const dynamicDOMEvent = new DynamicDOMEvent();
 });
 
 buildPage();

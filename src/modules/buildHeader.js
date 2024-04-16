@@ -1,4 +1,5 @@
 import { projectList } from "./buildProject";
+import { taskList } from "./buildTask";
 import { DOMElement, appendToParent, setContent } from "./dom";
 
 const content = document.getElementById("content");
@@ -17,9 +18,16 @@ export const buildHeader = () => {
         setContent(
           p.element,
           "textContent",
-          `You can add or manage Task to ${projectList[i].title}`
+          `${projectList[i].description}. You can add or manage Task to ${projectList[i].title}`
         );
         break;
+      } else {
+        setContent(h2.element, "textContent", "Today");
+        setContent(
+          p.element,
+          "textContent",
+          "Welcome! You can add or manage your global task, or start a new project."
+        );
       }
     }
   } else {
