@@ -1,5 +1,6 @@
 import { DOMElement, appendToParent, setContent } from "./dom";
 import { checkStateInput } from "./checkInput";
+import { toCamelCase } from "./utils";
 
 export let projectList = [];
 
@@ -46,6 +47,10 @@ export class Project {
       this.#state = state;
     }
   }
+
+  get id() {
+    return this.#id;
+  }
 }
 
 export const createNewProject = (title, description) => {
@@ -60,6 +65,7 @@ export const buildProject = () => {
     const li = new DOMElement("li");
     const a = new DOMElement("a");
     a.setAttribute("href", "#");
+    a.setAttribute("id", projectList[i].id);
     setContent(a.element, "textContent", projectList[i].title);
 
     appendToParent(sidebarLinks, li.element);

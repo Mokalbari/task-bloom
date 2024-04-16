@@ -22,6 +22,12 @@ export class ModalDomReference {
   }
 }
 
+export class SidebarReference {
+  constructor() {
+    this.sidebarLink = document.querySelector(".sidebar__a");
+  }
+}
+
 export class ModalControl extends ModalDomReference {
   constructor() {
     super();

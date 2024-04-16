@@ -3,6 +3,7 @@ import { DOMElement, appendToParent, setContent } from "./dom";
 import { svgBundle } from "./utils";
 import { checkInputDate, checkInputString } from "./checkInput";
 import { setUniqueID, toCamelCase } from "./utils";
+import { buildHeader } from "./buildHeader";
 
 export let taskList = [];
 const content = document.querySelector("#content");
@@ -90,6 +91,8 @@ export const createNewTask = (title, description, dueDate, priority) => {
 
 export const buildTask = () => {
   content.textContent = "";
+  // As content is erased everytime a task is built, buildHeader() is necessary here.
+  buildHeader();
   for (let i = 0; i < taskList.length; i++) {
     // Create the container around a task and verify priority
     const divTask = new DOMElement("div");

@@ -52,6 +52,12 @@ export class ModalEventListener {
   }
 }
 
-class ProjectEvent {
-  constructor(ProjectEvent) {}
-}
+// class ProjectEvent {
+//   constructor(tieEventListener) {
+//     this.tieEventListener();
+//   }
+
+//   tieEventListener() {
+
+//   }
+// }
