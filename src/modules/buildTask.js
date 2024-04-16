@@ -114,7 +114,7 @@ export const buildTask = () => {
 
     // Module for the svg
     const divTaskControlSvg = new DOMElement("div");
-    divTaskControlSvg.addClass;
+    divTaskControlSvg.addClass("task__control--svg");
 
     // Adding content to the newly created elements.
     setContent(titleH3.element, "textContent", taskList[i].title);
@@ -125,7 +125,11 @@ export const buildTask = () => {
       "textContent",
       format(taskList[i].dueDate, "dd-MM-yyyy")
     );
-    setContent(divTaskControlSvg.element, "innerHTML", svgBundle());
+    setContent(
+      divTaskControlSvg.element,
+      "innerHTML",
+      svgBundle(taskList[i].id)
+    );
 
     // Appending newly created elements to the DOM / parent.
     appendToParent(content, divTask.element);

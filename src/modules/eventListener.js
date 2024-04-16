@@ -77,5 +77,11 @@ export class DynamicDOMEvent {
       state = event.target.id;
       buildPage(state);
     });
+
+    this.content.addEventListener("click", (event) => {
+      if (event.target.classList.contains("task__control--svg")) {
+        alert("click");
+      }
+    });
   }
 }
