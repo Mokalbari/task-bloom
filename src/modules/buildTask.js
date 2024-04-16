@@ -112,9 +112,16 @@ export const buildTask = () => {
     const dateP1 = new DOMElement("p");
     const dateP2 = new DOMElement("p");
 
-    // Module for the svg
-    const divTaskControlSvg = new DOMElement("div");
-    divTaskControlSvg.addClass("task__control--svg");
+    // Module for the Button
+    const divTaskControlButton = new DOMElement("div");
+    divTaskControlButton.addClass("task__control--button");
+
+    const checkButton = new DOMElement("button");
+    checkButton.setAttribute("id", `val${taskList[i].id}`);
+    const modifyButton = new DOMElement("button");
+    modifyButton.setAttribute("id", `mod${taskList[i].id}`);
+    const deleteButton = new DOMElement("button");
+    deleteButton.setAttribute("id", `del${taskList[i].id}`);
 
     // Adding content to the newly created elements.
     setContent(titleH3.element, "textContent", taskList[i].title);
@@ -125,11 +132,9 @@ export const buildTask = () => {
       "textContent",
       format(taskList[i].dueDate, "dd-MM-yyyy")
     );
-    setContent(
-      divTaskControlSvg.element,
-      "innerHTML",
-      svgBundle(taskList[i].id)
-    );
+    setContent(checkButton.element, "textContent", "✔️");
+    setContent(modifyButton.element, "textContent", "⚙️");
+    setContent(deleteButton.element, "textContent", "✖️");
 
     // Appending newly created elements to the DOM / parent.
     appendToParent(content, divTask.element);
@@ -140,6 +145,9 @@ export const buildTask = () => {
     appendToParent(divTaskControl.element, divTaskControlDate.element);
     appendToParent(divTaskControlDate.element, dateP1.element);
     appendToParent(divTaskControlDate.element, dateP2.element);
-    appendToParent(divTaskControl.element, divTaskControlSvg.element);
+    appendToParent(divTaskControl.element, divTaskControlButton.element);
+    appendToParent(divTaskControlButton.element, checkButton.element);
+    appendToParent(divTaskControlButton.element, modifyButton.element);
+    appendToParent(divTaskControlButton.element, deleteButton.element);
   }
 };

@@ -138,16 +138,26 @@ body {
     align-items: center;
     gap: $s-100;
 
-    &--svg {
+    &--button {
       @include flex(row);
       margin-left: $s-100;
       gap: $s-100;
+
+      button {
+        padding: $s-050;
+        border: none;
+        @include round-border;
+
+        &:hover {
+          @include hover-effect;
+        }
+      }
     }
   }
 }
 
 svg:hover {
-  @include hover-effect;
+  cursor: pointer;
 }
 
 .check {

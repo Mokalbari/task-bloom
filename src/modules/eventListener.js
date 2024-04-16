@@ -1,7 +1,8 @@
-import { buildTask, createNewTask } from "./buildTask";
+import { buildTask, createNewTask, taskList } from "./buildTask";
 import { buildProject, createNewProject, projectList } from "./buildProject";
 import { buildPage } from "./buildPage";
 import { userInterface } from "./dom";
+import { trimID } from "./utils";
 
 // The state is used to control the heaer content on the page.
 // It can three main values: "today", "week", "all".
@@ -56,6 +57,7 @@ export class ModalEventListener {
       this.modalControl.newProjectForm.reset();
       this.modalControl.closeNewProjectModal();
     });
+    taskList.splice();
   }
 }
 
@@ -79,8 +81,8 @@ export class DynamicDOMEvent {
     });
 
     this.content.addEventListener("click", (event) => {
-      if (event.target.classList.contains("task__control--svg")) {
-        alert("click");
+      if (event.target.id.includes("del")) {
+        console.log(event.target.id);
       }
     });
   }

@@ -75,14 +75,10 @@ export class DOMElement {
 }
 
 export const setContent = (element, method, str) => {
-  if (checkInputString(str)) {
-    if (method === "innerHTML") {
-      return (element.innerHTML = str);
-    } else if (method === "textContent") {
-      return (element.textContent = str);
-    } else {
-      throw new Error("Your input must be 'innerHTML' or 'textContent");
-    }
+  if (method === "innerHTML") {
+    return (element.innerHTML = str);
+  } else if (method === "textContent") {
+    return (element.textContent = str);
   } else {
     throw new Error("Your input must be 'innerHTML' or 'textContent");
   }
