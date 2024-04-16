@@ -5,8 +5,8 @@ import { userInterface } from "./dom";
 import { trimID } from "./utils";
 import { modifyTask } from "./controlTask";
 
-// The state is used to control the heaer content on the page.
-// It can three main values: "today", "week", "all".
+// The state is used to control the header content on the page.
+// It can have three main values: "today", "week", "all".
 // Or it can have the id of the current working project.
 export let state = "today";
 

@@ -1,9 +1,9 @@
 import { format, set } from "date-fns";
 import { DOMElement, appendToParent, setContent, userInterface } from "./dom";
-import { svgBundle } from "./utils";
-import { checkInputDate, checkInputString } from "./checkInput";
+import { checkInputDate, checkInputString, checkProjectID } from "./checkInput";
 import { setUniqueID, toCamelCase } from "./utils";
 import { buildHeader } from "./buildHeader";
+import { state } from "./eventListener";
 
 export let taskList = [];
 const content = userInterface.content;
@@ -18,14 +18,14 @@ export class Task {
   #project;
   #check;
 
-  constructor(title, description, dueDate, priority, project) {
+  constructor(title, description, dueDate, priority) {
     this.#id = setUniqueID();
     this.#date = new Date();
     this.#title = title;
     this.#description = description;
     this.#dueDate = dueDate;
     this.#priority = priority;
-    this.#project = project;
+    this.#project = checkProjectID(state);
     this.#check = false;
   }
   get title() {
@@ -90,6 +90,16 @@ export class Task {
 
   set check(value) {
     this.#check = value;
+  }
+
+  get project() {
+    return this.#project;
+  }
+
+  set project(value) {
+    if (getProjectID(value)) {
+      this.#project = value;
+    }
   }
 }
 

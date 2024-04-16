@@ -1,4 +1,4 @@
-import { buildTask } from "./buildTask";
+import { buildTask, taskList } from "./buildTask";
 import { buildHeader } from "./buildHeader";
 import { userInterface } from "./dom";
 import { buildProject } from "./buildProject";

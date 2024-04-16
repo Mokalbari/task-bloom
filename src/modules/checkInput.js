@@ -28,3 +28,11 @@ export const checkStateInput = (value) => {
     return true;
   }
 };
+
+export const checkProjectID = (value) => {
+  if (value === "today" || value === "week" || value === "all") {
+    return null;
+  } else {
+    return value;
+  }
+};
