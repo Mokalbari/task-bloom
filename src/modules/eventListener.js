@@ -4,6 +4,7 @@ import { buildPage } from "./buildPage";
 import { userInterface } from "./dom";
 import { trimID } from "./utils";
 import { modifyTask } from "./controlTask";
+import { checkDateInput } from "./checkInput";
 
 // The state is used to control the header content on the page.
 // It can have three main values: "today", "week", "all".
@@ -32,6 +33,10 @@ export class ModalEventListener {
       const description = document.getElementById("description").value;
       const dueDate = document.getElementById("due-date").value;
       const priority = document.getElementById("priority").value;
+
+      if (!checkDateInput(dueDate)) {
+        return;
+      }
 
       this.modalControl.newTaskForm.reset();
       createNewTask(title, description, dueDate, priority);

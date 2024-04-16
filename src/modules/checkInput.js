@@ -1,3 +1,4 @@
+import { startOfDay, addYears, isAfter } from "date-fns";
 // New task or modification, checks field validation
 export const checkInputString = (value) => {
   if (typeof value !== "string") {
@@ -34,5 +35,20 @@ export const checkProjectID = (value) => {
     return null;
   } else {
     return value;
+  }
+};
+
+export const checkDateInput = (value) => {
+  const today = startOfDay(new Date());
+  const maxDate = addYears(new Date(), 10);
+  const inputDate = startOfDay(new Date(value));
+  if (inputDate < today) {
+    alert("Enter a due date in the future.");
+    return false;
+  } else if (isAfter(inputDate, maxDate)) {
+    alert("Add a date within a 10 year frame.");
+    return false;
+  } else {
+    return true;
   }
 };

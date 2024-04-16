@@ -115,6 +115,8 @@ export const buildTask = () => {
     divTask.addClass("task");
     const priority = taskList[i].priority;
     divTask.addClass(priority);
+
+    // This toggles the check behaviour. Enables / disables the .check class
     const check = taskList[i].check;
     if (check) {
       divTask.addClass("check");
