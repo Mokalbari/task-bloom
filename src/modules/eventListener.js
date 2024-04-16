@@ -3,6 +3,11 @@ import { buildProject, createNewProject, projectList } from "./buildProject";
 import { buildPage } from "./buildPage";
 import { userInterface } from "./dom";
 
+// The state is used to control the heaer content on the page.
+// It can three main values: "today", "week", "all".
+// Or it can have the id of the current working project.
+export let state = "today";
+
 export class ModalEventListener {
   constructor(modalControl) {
     this.modalControl = modalControl;
@@ -28,7 +33,7 @@ export class ModalEventListener {
 
       this.modalControl.newTaskForm.reset();
       createNewTask(title, description, dueDate, priority);
-      buildPage();
+      buildPage(state);
       this.modalControl.closeNewTaskModal();
     });
 
@@ -47,7 +52,7 @@ export class ModalEventListener {
       const description = document.getElementById("descriptionProject").value;
 
       createNewProject(title, description);
-      buildPage();
+      buildPage(state);
       this.modalControl.newProjectForm.reset();
       this.modalControl.closeNewProjectModal();
     });
@@ -57,13 +62,20 @@ export class ModalEventListener {
 export class DynamicDOMEvent {
   constructor() {
     this.content = userInterface.content;
-    this.sidebarLinks = userInterface.sidebarLinks;
+    this.sidebarProjects = userInterface.sidebarProjects;
+    this.sidebarDate = userInterface.sidebarDate;
     this.tieEventListener();
   }
 
   tieEventListener() {
-    this.sidebarLinks.addEventListener("click", (event) => {
-      alert(event.target.id);
+    this.sidebarProjects.addEventListener("click", (event) => {
+      state = event.target.id;
+      buildPage(state);
+    });
+
+    this.sidebarDate.addEventListener("click", (event) => {
+      state = event.target.id;
+      buildPage(state);
     });
   }
 }

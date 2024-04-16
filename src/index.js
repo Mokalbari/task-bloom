@@ -13,4 +13,4 @@ document.addEventListener("DOMContentLoaded", () => {
   const dynamicDOMEvent = new DynamicDOMEvent();
 });
 
-buildPage();
+buildPage("today");

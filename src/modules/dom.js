@@ -24,7 +24,8 @@ export class ModalDomReference {
 
 export const userInterface = {
   content: document.querySelector("#content"),
-  sidebarLinks: document.querySelector("#sidebarLinksContent"),
+  sidebarProjects: document.querySelector("#sidebarLinksProject"),
+  sidebarDate: document.querySelector("#sidebarLinksDate"),
 };
 
 export class ModalControl extends ModalDomReference {
@@ -80,10 +81,10 @@ export const setContent = (element, method, str) => {
     } else if (method === "textContent") {
       return (element.textContent = str);
     } else {
-      throw new Error("Your input mustbe 'innerHTML' or 'textContent");
+      throw new Error("Your input must be 'innerHTML' or 'textContent");
     }
   } else {
-    throw new Error("Your input mustbe 'innerHTML' or 'textContent");
+    throw new Error("Your input must be 'innerHTML' or 'textContent");
   }
 };
 

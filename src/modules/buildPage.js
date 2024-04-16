@@ -5,12 +5,12 @@ import { buildProject } from "./buildProject";
 
 const clearPage = () => {
   userInterface.content.textContent = "";
-  userInterface.sidebarLinks.textContent = "";
+  userInterface.sidebarProjects.textContent = "";
 };
 
-export const buildPage = () => {
+export const buildPage = (value) => {
   clearPage();
-  buildHeader();
+  buildHeader(value);
   buildProject();
   buildTask();
 };

@@ -4,7 +4,7 @@ import { toCamelCase } from "./utils";
 
 export let projectList = [];
 
-const sidebarLinks = userInterface.sidebarLinks;
+const sidebarProjects = userInterface.sidebarProjects;
 
 export class Project {
   #title;
@@ -66,7 +66,8 @@ export const buildProject = () => {
     a.setAttribute("id", projectList[i].id);
     setContent(a.element, "textContent", projectList[i].title);
 
-    appendToParent(sidebarLinks, li.element);
+    appendToParent(sidebarProjects, li.element);
     appendToParent(li.element, a.element);
   }
+  console.table(projectList);
 };
