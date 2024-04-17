@@ -1,4 +1,11 @@
-import { startOfDay, addYears, isAfter } from "date-fns";
+import {
+  startOfDay,
+  addYears,
+  isAfter,
+  endOfWeek,
+  isSameDay,
+  isBefore,
+} from "date-fns";
 // New task or modification, checks field validation
 export const checkInputString = (value) => {
   if (typeof value !== "string") {
@@ -50,5 +57,20 @@ export const checkDateInput = (value) => {
     return false;
   } else {
     return true;
+  }
+};
+
+export const checkDate = (tasks, filter) => {
+  const today = startOfDay(new Date());
+  switch (filter) {
+    case "today":
+      return tasks.filter((task) => isSameDay(task.dueDate, today));
+    case "week":
+      const endOfWeekDate = endOfWeek(today);
+      return tasks.filter((task) => isBefore(task.dueDate, endOfWeekDate));
+    case "all":
+      return tasks;
+    default:
+      return tasks;
   }
 };

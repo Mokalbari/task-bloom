@@ -23,7 +23,7 @@ export class Task {
     this.#date = new Date();
     this.#title = title;
     this.#description = description;
-    this.#dueDate = dueDate;
+    this.#dueDate = new Date(dueDate);
     this.#priority = priority;
     this.#project = checkProjectID(state);
     this.#check = false;
@@ -108,61 +108,50 @@ export const createNewTask = (title, description, dueDate, priority) => {
   taskList.push(newTask);
 };
 
-export const buildTask = () => {
-  for (let i = 0; i < taskList.length; i++) {
-    // Create the container around a task and verify priority
+export const buildTask = (taskListToBuild) => {
+  taskListToBuild.forEach((task) => {
     const divTask = new DOMElement("div");
     divTask.addClass("task");
-    const priority = taskList[i].priority;
-    divTask.addClass(priority);
+    divTask.addClass(task.priority);
 
-    // This toggles the check behaviour. Enables / disables the .check class
-    const check = taskList[i].check;
-    if (check) {
+    if (task.check) {
       divTask.addClass("check");
     }
 
-    // Create the header part of the task
     const divTaskTitle = new DOMElement("div");
     divTaskTitle.addClass("task__title");
     const titleH3 = new DOMElement("h3");
     const titleP = new DOMElement("p");
 
-    // Create the control part of the task
     const divTaskControl = new DOMElement("div");
     divTaskControl.addClass("task__control");
 
-    // Module for the due date
     const divTaskControlDate = new DOMElement("div");
     divTaskControlDate.addClass("task__control--date");
     const dateP1 = new DOMElement("p");
     const dateP2 = new DOMElement("p");
 
-    // Module for the Button
     const divTaskControlButton = new DOMElement("div");
     divTaskControlButton.addClass("task__control--button");
-
     const checkButton = new DOMElement("button");
-    checkButton.setAttribute("id", `val${taskList[i].id}`);
+    checkButton.setAttribute("id", `val${task.id}`);
     const modifyButton = new DOMElement("button");
-    modifyButton.setAttribute("id", `mod${taskList[i].id}`);
+    modifyButton.setAttribute("id", `mod${task.id}`);
     const deleteButton = new DOMElement("button");
-    deleteButton.setAttribute("id", `del${taskList[i].id}`);
+    deleteButton.setAttribute("id", `del${task.id}`);
 
-    // Adding content to the newly created elements.
-    setContent(titleH3.element, "textContent", taskList[i].title);
-    setContent(titleP.element, "textContent", taskList[i].description);
+    setContent(titleH3.element, "textContent", task.title);
+    setContent(titleP.element, "textContent", task.description);
     setContent(dateP1.element, "textContent", "Due date:");
     setContent(
       dateP2.element,
       "textContent",
-      format(taskList[i].dueDate, "dd-MM-yyyy")
+      format(task.dueDate, "dd-MM-yyyy")
     );
     setContent(checkButton.element, "textContent", "✔️");
     setContent(modifyButton.element, "textContent", "⚙️");
     setContent(deleteButton.element, "textContent", "✖️");
 
-    // Appending newly created elements to the DOM / parent.
     appendToParent(content, divTask.element);
     appendToParent(divTask.element, divTaskTitle.element);
     appendToParent(divTaskTitle.element, titleH3.element);
@@ -175,5 +164,5 @@ export const buildTask = () => {
     appendToParent(divTaskControlButton.element, checkButton.element);
     appendToParent(divTaskControlButton.element, modifyButton.element);
     appendToParent(divTaskControlButton.element, deleteButton.element);
-  }
+  });
 };

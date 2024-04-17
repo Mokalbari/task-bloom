@@ -5,6 +5,7 @@ import { userInterface } from "./dom";
 import { trimID } from "./utils";
 import { modifyTask } from "./controlTask";
 import { checkDateInput } from "./checkInput";
+import { startOfDay } from "date-fns";
 
 // The state is used to control the header content on the page.
 // It can have three main values: "today", "week", "all".
