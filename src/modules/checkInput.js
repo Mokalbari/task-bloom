@@ -74,3 +74,9 @@ export const checkDate = (tasks, filter) => {
       return tasks;
   }
 };
+
+export const checkProject = (tasks, value) => {
+  const project = value;
+  console.log(project);
+  return tasks.filter((task) => task.project === project);
+};

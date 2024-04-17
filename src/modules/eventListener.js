@@ -10,7 +10,7 @@ import { startOfDay } from "date-fns";
 // The state is used to control the header content on the page.
 // It can have three main values: "today", "week", "all".
 // Or it can have the id of the current working project.
-export let state = "today";
+export let state = "all";
 
 export class ModalEventListener {
   constructor(modalControl) {
